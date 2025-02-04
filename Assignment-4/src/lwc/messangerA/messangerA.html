@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="messangerA">
+        <div class="slds-m-around_medium">
+            <div class="slds-m-around_small">
+                <p class="slds-text-heading_small">Received Message:</p>
+                <p>{messageToShown}</p>
+            </div>
+            <div class="slds-m-around_small">
+                <p class="slds-text-heading_small">Message To Send:</p>
+                <lightning-input type="text" placeholder="Enter your message to send..."
+                    onchange={handleChange}></lightning-input>
+            </div>
+            <div class="slds-m-around_small">
+                <lightning-button variant="brand" label="Send Message" onclick={handleClick}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>
