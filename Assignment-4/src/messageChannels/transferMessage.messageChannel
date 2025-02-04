@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Message Channel to pass message</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <description>This is the message that is to be pass from A to b</description>
+        <fieldName>msgAtoB</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <description>This is the message that is to be pass from B to A</description>
+        <fieldName>msgBtoA</fieldName>
+    </lightningMessageFields>
+    <masterLabel>TransferMessage</masterLabel>
+</LightningMessageChannel>
