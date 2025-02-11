@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Generic PickList">
+        <div class="slds-m-around_medium">
+            <div>
+                <lightning-input type="text" label="Object API Name" name="object"></lightning-input>
+            </div>
+            <div class="slds-m-top_small">
+                <lightning-input type="text" label="Field API Name" name="field"></lightning-input>
+            </div>
+            <div class="slds-m-around_medium">
+                <lightning-button label="Get Picklist values" variant="brand" onclick={handleGetPicklistValues}></lightning-button>
+            </div>
+            <template lwc:if={showPicklistValue}>
+                <div>
+                    <lightning-combobox
+                    name="picklistValue"
+                    label="Available Picklist Values:"
+                    placeholder={pickListPlaceholder}
+                    options={options}
+                    ></lightning-combobox>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
