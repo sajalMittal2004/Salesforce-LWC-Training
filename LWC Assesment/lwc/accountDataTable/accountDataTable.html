@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="Account Data Table">
+        <div slot="actions" class="slds-m-around_small">
+            <lightning-button variant="Neutral" label="Create Account" onclick={handleCreateAccount}>
+            </lightning-button>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-datatable hide-checkbox-column="true" key-field="Id" data={data} columns={columns}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+    <template lwc:if={createAccount}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close" onclick={handleCloseWizard}>
+                    <lightning-icon icon-name="utility:close" alternative-text="close" size="small"
+                        variant="inverse"></lightning-icon>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Account Creation
+                        Form</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-card class="slds-m-around_medium">
+                        <lightning-record-edit-form object-api-name="Account" onsuccess={handleSuccess}>
+                            <div class="slds-grid">
+                                <div class="slds-size_2-of-2 slds-grid slds-wrap slds-form_horizontal slds-form">
+                                    <lightning-input-field field-name="Name" onchange={handlechange}></lightning-input-field>
+                                    <lightning-input-field field-name="Phone"></lightning-input-field>
+                                    <lightning-input-field field-name="Website"></lightning-input-field>
+                                    <lightning-input-field field-name="Industry"></lightning-input-field>
+                                </div>
+                            </div>
+                            <lightning-button type="submit" variant="brand" label="Save Contact" class="slds-align_absolute-center"></lightning-button>
+                        </lightning-record-edit-form>
+                    </lightning-card>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+                        onclick={handleCloseWizard}>Close</button>
+                </div>
+                </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+    <template lwc:if={createContact}>
+        <c-contact-creation-form acc-id={recordId} acc-name={accName} oncloseform={handleCloseForm}
+            oncontactcreated={handleContactCreated}></c-contact-creation-form>
+    </template>
+</template>
